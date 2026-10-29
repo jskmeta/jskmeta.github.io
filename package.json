@@ -1,0 +1,19 @@
+{
+  "name": "@jskmeta/website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official website and developer portal for JSK META LLC",
+  "type": "module",
+  "scripts": {
+    "lint": "pnpm run format-check && node scripts/check-links.js",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "format-check": "prettier --check \"**/*.{html,css,js,json,md}\"",
+    "commitlint": "commitlint --from origin/main --to HEAD",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "prettier": "^3.5.2"
+  }
+}
