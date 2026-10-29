@@ -1,0 +1,62 @@
+name: JSK Meta CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate Code Style, Integrity & Commits
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable Corepack & Install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.33.0 --activate
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify No Tracked Secrets
+        run: |
+          TRACKED_SECRETS=$(git ls-files '*.jks' '*.keystore' '*.p8' '*.p12' '*.mobileprovision' '*.key' || true)
+          if [ -n "$TRACKED_SECRETS" ]; then
+            echo "::error::Sensitive credential or key files are tracked in git: $TRACKED_SECRETS"
+            exit 1
+          fi
+
+      - name: Code Formatting & Integrity Checks
+        run: pnpm run lint
+
+      - name: Validate PR Title & Conventional Commits (Pull Requests)
+        if: github.event_name == 'pull_request'
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          # 1. Validate PR Title (squash-merge header simulation with max 92 chars)
+          SUFFIX=" (#${PR_NUMBER})"
+          SQUASHED_HEADER="${PR_TITLE}${SUFFIX}"
+          echo "Validating squashed PR header: ${SQUASHED_HEADER}"
+          echo "${SQUASHED_HEADER}" | pnpm exec commitlint
+
+          # 2. Validate all individual commits in the PR branch
+          echo "Validating commit messages from origin/${BASE_REF} to HEAD..."
+          pnpm exec commitlint --from "origin/${BASE_REF}" --to HEAD
