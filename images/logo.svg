@@ -38,30 +38,31 @@
 
   <g filter="url(#subtle-drop)">
     <!-- J STEM (Left facet light, Right facet shadow) -->
-    <!-- Top terminal cap -->
-    <polygon points="120,95 195,95 195,135 158,135 158,300 120,300" fill="url(#gold-light)" />
+    <!-- Top terminal cap & stem -->
+    <polygon points="108,100 152,100 152,308 108,308" fill="url(#gold-mid)" />
+    <polygon points="108,100 130,100 130,308 108,308" fill="url(#gold-light)" />
     
-    <!-- J Hook (Bottom curve) -->
-    <path d="M 120,300 L 158,300 C 158,335 140,365 105,365 C 75,365 55,345 55,315 L 90,315 C 90,328 96,335 105,335 C 114,335 120,325 120,300 Z" fill="url(#gold-mid)" />
+    <!-- J Hook (Bottom curve curling left) -->
+    <path d="M 108,308 L 152,308 C 152,352 128,382 86,382 C 58,382 38,358 38,324 L 76,324 C 76,337 82,344 92,344 C 102,344 108,332 108,308 Z" fill="url(#gold-light)" />
 
-    <!-- S LETTER (Intertwined center ribbon with over/under layering) -->
-    <!-- S Top Arc (Over the J) -->
-    <path d="M 290,175 C 290,125 240,95 185,95 L 185,135 C 220,135 250,150 250,175 C 250,205 220,225 180,245 C 130,270 100,305 100,355 C 100,410 150,440 215,440 C 275,440 310,410 310,360 L 268,360 C 268,388 245,402 215,402 C 175,402 142,382 142,355 C 142,328 165,310 205,290 C 260,262 290,230 290,175 Z" fill="url(#gold-light)" />
+    <!-- FORWARD S (Sculpted Center Ribbon in Natural Direction) -->
+    <!-- S Main Body: Starts at upper right, curves left over top, sweeps diagonally down-right, curves out to lower right, finishes at bottom left -->
+    <path d="M 308,158 L 268,158 C 268,136 248,120 222,120 C 185,120 160,143 160,173 C 160,203 185,223 232,243 C 295,270 335,306 335,362 C 335,424 284,454 215,454 C 152,454 115,421 115,365 L 156,365 C 156,394 178,414 215,414 C 258,414 293,392 293,360 C 293,326 266,303 220,283 C 162,256 120,226 120,173 C 120,113 168,80 224,80 C 282,80 308,114 308,158 Z" fill="url(#gold-light)" />
 
-    <!-- Negative space cut / shadow on S spine where it weaves -->
-    <path d="M 180,245 C 220,225 250,205 250,175 C 250,165 245,155 235,148 L 245,135 C 260,145 268,160 268,175 C 268,215 235,240 195,258 Z" fill="url(#gold-shadow)" opacity="0.8" />
+    <!-- Dimensional Bevel / Chisel Spine on S Waist -->
+    <path d="M 232,243 C 295,270 335,306 335,362 L 315,362 C 315,320 284,293 235,270 L 192,250 C 165,236 142,220 128,203 L 138,188 C 156,208 182,223 232,243 Z" fill="url(#gold-shadow)" opacity="0.65" />
 
     <!-- K LETTER (Right side with bold angled facets) -->
     <!-- K Vertical Stem -->
-    <polygon points="325,120 365,120 365,415 325,415" fill="url(#gold-mid)" />
-    <polygon points="325,120 345,120 345,415 325,415" fill="url(#gold-light)" />
+    <polygon points="352,100 394,100 394,432 352,432" fill="url(#gold-mid)" />
+    <polygon points="352,100 373,100 373,432 352,432" fill="url(#gold-light)" />
 
     <!-- K Upper Diagonal (with chiseled split) -->
-    <polygon points="365,260 440,140 485,140 395,280" fill="url(#gold-light)" />
-    <polygon points="365,260 395,280 470,165 440,140" fill="url(#gold-shadow)" opacity="0.6" />
+    <polygon points="394,254 466,120 510,120 423,276" fill="url(#gold-light)" />
+    <polygon points="394,254 423,276 493,148 466,120" fill="url(#gold-shadow)" opacity="0.6" />
 
     <!-- K Lower Diagonal (with chiseled split) -->
-    <polygon points="375,250 485,415 440,415 350,285" fill="url(#gold-mid)" />
-    <polygon points="375,250 350,285 415,385 440,415" fill="url(#gold-light)" />
+    <polygon points="404,244 510,432 466,432 376,284" fill="url(#gold-mid)" />
+    <polygon points="404,244 376,284 442,402 466,432" fill="url(#gold-light)" />
   </g>
 </svg>
