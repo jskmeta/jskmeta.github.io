@@ -43,7 +43,7 @@ JSK Meta builds focused, high-fidelity mobile tools designed to do one thing exc
 | Requirement                      | Value                                                  | Verification                                  |
 | :------------------------------- | :----------------------------------------------------- | :-------------------------------------------- |
 | **Legal Entity**                 | JSK META LLC                                           | Commonwealth of Virginia SCC                  |
-| **Developer Organization**       | D-U-N-S Verified                                       | Dun & Bradstreet / Apple / Google Play        |
+| **Developer Organization**       | Registered Developer                                   | Apple Developer / Google Play Console         |
 | **Support Email**                | `support@jskmeta.com`                                  | Verified Domain MX                            |
 | **Store Listing Privacy Policy** | [`privacy.html`](https://www.jskmeta.com/privacy.html) | Apple Guideline 5.1.1 & Google Play User Data |
 | **Terms of Service**             | [`terms.html`](https://www.jskmeta.com/terms.html)     | Standard software utility license             |
