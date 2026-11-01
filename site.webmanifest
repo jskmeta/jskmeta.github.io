@@ -1,0 +1,17 @@
+{
+  "name": "JSK Meta",
+  "short_name": "JSK Meta",
+  "description": "Thoughtful, focused mobile tools built for speed and privacy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
