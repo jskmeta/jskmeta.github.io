@@ -7,74 +7,63 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const imagesDir = path.join(rootDir, "images");
 
-const goldGradients = `
-  <defs>
-    <!-- Highlight gold -->
-    <linearGradient id="gold-light" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fff5db" />
-      <stop offset="40%" stop-color="#f0cb75" />
-      <stop offset="80%" stop-color="#cf9e38" />
-      <stop offset="100%" stop-color="#9a6e1a" />
-    </linearGradient>
-
-    <!-- Midtone gold -->
-    <linearGradient id="gold-mid" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#f5d688" />
-      <stop offset="50%" stop-color="#d4a343" />
-      <stop offset="100%" stop-color="#8c5e14" />
-    </linearGradient>
-
-    <!-- Deep shadow facet -->
-    <linearGradient id="gold-shadow" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#b08226" />
-      <stop offset="50%" stop-color="#7a500e" />
-      <stop offset="100%" stop-color="#4d3005" />
-    </linearGradient>
-
-    <!-- Horizontal sweep -->
-    <linearGradient id="gold-sweep" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#fae2a0" />
-      <stop offset="50%" stop-color="#d8ab4e" />
-      <stop offset="100%" stop-color="#9b6e1c" />
-    </linearGradient>
-
-    <filter id="subtle-drop" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.28" />
-    </filter>
-  </defs>
-`;
-
 const logoSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  ${goldGradients}
-  <g filter="url(#subtle-drop)">
-    <!-- J STEM (Left facet light, Right facet shadow) -->
-    <!-- Top terminal cap & stem -->
-    <polygon points="108,100 152,100 152,308 108,308" fill="url(#gold-mid)" />
-    <polygon points="108,100 130,100 130,308 108,308" fill="url(#gold-light)" />
-    
-    <!-- J Hook (Bottom curve curling left) -->
-    <path d="M 108,308 L 152,308 C 152,352 128,382 86,382 C 58,382 38,358 38,324 L 76,324 C 76,337 82,344 92,344 C 102,344 108,332 108,308 Z" fill="url(#gold-light)" />
+  <defs>
+    <!-- Site Accent: Electric Cyan to Cobalt Blue -->
+    <linearGradient id="cyan-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="60%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
 
-    <!-- FORWARD S (Sculpted Center Ribbon in Natural Direction) -->
-    <!-- S Main Body: Starts at upper right, curves left over top, sweeps diagonally down-right, curves out to lower right, finishes at bottom left -->
-    <path d="M 308,158 L 268,158 C 268,136 248,120 222,120 C 185,120 160,143 160,173 C 160,203 185,223 232,243 C 295,270 335,306 335,362 C 335,424 284,454 215,454 C 152,454 115,421 115,365 L 156,365 C 156,394 178,414 215,414 C 258,414 293,392 293,360 C 293,326 266,303 220,283 C 162,256 120,226 120,173 C 120,113 168,80 224,80 C 282,80 308,114 308,158 Z" fill="url(#gold-light)" />
+    <!-- Electric Cyan to Purple / Indigo -->
+    <linearGradient id="cyan-indigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
 
-    <!-- Dimensional Bevel / Chisel Spine on S Waist -->
-    <path d="M 232,243 C 295,270 335,306 335,362 L 315,362 C 315,320 284,293 235,270 L 192,250 C 165,236 142,220 128,203 L 138,188 C 156,208 182,223 232,243 Z" fill="url(#gold-shadow)" opacity="0.65" />
+    <!-- Dark Glass Squircle Background -->
+    <linearGradient id="squircle-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#162238" />
+      <stop offset="50%" stop-color="#0d1524" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
 
-    <!-- K LETTER (Right side with bold angled facets) -->
-    <!-- K Vertical Stem -->
-    <polygon points="352,100 394,100 394,432 352,432" fill="url(#gold-mid)" />
-    <polygon points="352,100 373,100 373,432 352,432" fill="url(#gold-light)" />
+    <!-- Squircle Border -->
+    <linearGradient id="squircle-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.28)" />
+      <stop offset="100%" stop-color="rgba(56, 189, 248, 0.35)" />
+    </linearGradient>
 
-    <!-- K Upper Diagonal (with chiseled split) -->
-    <polygon points="394,254 466,120 510,120 423,276" fill="url(#gold-light)" />
-    <polygon points="394,254 423,276 493,148 466,120" fill="url(#gold-shadow)" opacity="0.6" />
+    <!-- Modern Soft Drop Shadows -->
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0284c7" flood-opacity="0.32" />
+    </filter>
+    <filter id="badge-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
 
-    <!-- K Lower Diagonal (with chiseled split) -->
-    <polygon points="404,244 510,432 466,432 376,284" fill="url(#gold-mid)" />
-    <polygon points="404,244 376,284 442,402 466,432" fill="url(#gold-light)" />
+  <!-- Apple Studio Developer Squircle Base -->
+  <g filter="url(#badge-shadow)">
+    <rect x="46" y="46" width="420" height="420" rx="96" ry="96" fill="url(#squircle-bg)" stroke="url(#squircle-stroke)" stroke-width="3" />
+    <path d="M 65,115 C 65,78 95,54 138,48 L 374,48 C 417,54 447,78 447,115 C 447,140 417,122 374,122 L 138,122 C 95,122 65,140 65,115 Z" fill="#ffffff" opacity="0.06" />
+  </g>
+
+  <!-- Luminous Studio JSK Core -->
+  <g filter="url(#soft-glow)">
+    <!-- J -->
+    <path d="M 125,155 L 165,155 L 165,310 C 165,342 145,362 114,362 C 88,362 72,345 72,322 L 105,322 C 105,330 108,335 114,335 C 122,335 125,328 125,310 Z" fill="url(#cyan-blue)" />
+
+    <!-- S (Forward orientation) -->
+    <path d="M 285,200 L 250,200 C 250,180 236,168 215,168 C 188,168 170,184 170,206 C 170,228 188,242 222,256 C 268,274 298,300 298,342 C 298,388 258,412 208,412 C 158,412 128,385 128,342 L 162,342 C 162,366 182,382 208,382 C 238,382 262,366 262,342 C 262,318 240,302 205,286 C 162,270 135,246 135,206 C 135,160 170,138 215,138 C 260,138 285,164 285,200 Z" fill="url(#cyan-indigo)" />
+
+    <!-- K -->
+    <polygon points="320,155 355,155 355,378 320,378" fill="url(#cyan-blue)" />
+    <polygon points="355,268 415,155 452,155 382,284" fill="url(#cyan-indigo)" />
+    <polygon points="365,258 452,378 412,378 338,288" fill="url(#cyan-blue)" />
   </g>
 </svg>
 `;
@@ -108,10 +97,9 @@ async function generateAssets() {
       <stop offset="60%" stop-color="#090d16" />
       <stop offset="100%" stop-color="#04060a" />
     </radialGradient>
-    <linearGradient id="gold-text" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f5d688" />
-      <stop offset="50%" stop-color="#e2b450" />
-      <stop offset="100%" stop-color="#cf9e38" />
+    <linearGradient id="cyan-text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#60a5fa" />
     </linearGradient>
   </defs>
 
@@ -119,7 +107,7 @@ async function generateAssets() {
   <rect x="30" y="30" width="1140" height="570" rx="20" ry="20" fill="none" stroke="#1e293b" stroke-width="1.5" stroke-opacity="0.8" />
 
   <text x="600" y="365" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif" font-size="52" font-weight="800" fill="#ffffff" letter-spacing="2" text-anchor="middle">JSK META</text>
-  <text x="600" y="415" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="url(#gold-text)" letter-spacing="6" text-anchor="middle">INDEPENDENT MOBILE SOFTWARE STUDIO</text>
+  <text x="600" y="415" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="url(#cyan-text)" letter-spacing="6" text-anchor="middle">INDEPENDENT MOBILE SOFTWARE STUDIO</text>
   <text x="600" y="470" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="400" fill="#94a3b8" letter-spacing="0.3" text-anchor="middle">Thoughtful, Privacy-First Mobile Utilities &#8226; Zero Ads &#8226; 100% Offline</text>
 
   <g transform="translate(485, 515)">
