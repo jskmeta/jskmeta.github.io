@@ -564,86 +564,31 @@ a:hover {
   align-items: center;
 }
 
-.app-mockup {
+.device-frame-wrap {
   width: 100%;
-  max-width: 340px;
-  aspect-ratio: 9 / 18;
-  background: light-dark(#0a0f1d, #050811);
-  border-radius: 40px;
-  border: 8px solid light-dark(#1e293b, #1f293d);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-  padding: 1.25rem;
+  max-width: 320px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  overflow: hidden;
-  color: #ffffff;
-}
-
-.mockup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-.mockup-viewfinder {
-  flex: 1;
-  margin: 1.5rem 0;
-  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.3), rgba(0, 0, 0, 0.85));
-  border-radius: 20px;
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-}
-
-.mockup-zoom-text {
-  font-size: 2.25rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #ffffff;
-  font-family: var(--font-mono);
-}
-
-.mockup-zoom-sub {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.7;
-  margin-top: 0.25rem;
-}
-
-.mockup-controls {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0.5rem 0;
-}
-
-.mockup-ctrl-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 50px rgba(56, 189, 248, 0.12));
   transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.3s ease;
 }
 
-.mockup-ctrl-btn svg {
-  width: 20px;
-  height: 20px;
+.device-frame-wrap:hover {
+  transform: translateY(-6px) scale(1.02);
+  filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 65px rgba(56, 189, 248, 0.22));
+}
+
+.device-mockup-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* Studio Principles Grid */
@@ -990,13 +935,8 @@ a:hover {
   .app-card {
     padding: 1.5rem;
   }
-  .app-mockup {
-    max-width: 280px;
-    border-width: 6px;
-    border-radius: 32px;
-  }
-  .mockup-zoom-text {
-    font-size: 1.85rem;
+  .device-frame-wrap {
+    max-width: 270px;
   }
   .app-cta-row {
     flex-direction: column;
