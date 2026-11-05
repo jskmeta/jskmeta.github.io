@@ -69,6 +69,52 @@
         } catch (err) {}
       });
     }
+
+    initMockupSwitcher();
+  }
+
+  function initMockupSwitcher() {
+    const tabBtns = document.querySelectorAll(".mockup-tab-btn");
+    const source = document.getElementById("squint-mockup-source");
+    const img = document.getElementById("squint-mockup-img");
+    if (!tabBtns.length || !source || !img) return;
+
+    const views = {
+      live: {
+        webp: "images/squint-device-mockup.webp",
+        png: "images/squint-device-mockup.png",
+        alt: "Squint iOS magnifier interface with live camera viewfinder, vertical zoom slider rail, bottom preset buttons, and torch brightness control",
+      },
+      freeze: {
+        webp: "images/squint-freeze-inspect.webp",
+        png: "images/squint-freeze-inspect.png",
+        alt: "Squint freeze inspection interface showing magnified prescription label with high-contrast text and barcode",
+      },
+    };
+
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const viewKey = this.getAttribute("data-view");
+        const view = views[viewKey];
+        if (!view) return;
+
+        tabBtns.forEach(function (b) {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        this.classList.add("active");
+        this.setAttribute("aria-selected", "true");
+
+        // Subtle cross-fade
+        img.style.opacity = "0.3";
+        setTimeout(function () {
+          source.srcset = view.webp;
+          img.src = view.png;
+          img.alt = view.alt;
+          img.style.opacity = "1";
+        }, 120);
+      });
+    });
   }
 
   if (document.readyState === "loading") {
